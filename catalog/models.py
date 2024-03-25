@@ -2,11 +2,12 @@ from django.db import models
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Имя')
-    description = models.TextField(verbose_name='описание')
-    picture = models.ImageField(upload_to='products/', blank=True, null=True)
-    category = models.ForeignKey("Category", on_delete = models.CASCADE)
-    price_for_purchase = models.DecimalField(max_digits=20, decimal_places=2)
+    name = models.CharField(max_length=100, verbose_name='Название продукта')
+    description = models.TextField(verbose_name='Описание')
+    picture = models.ImageField(upload_to='products/', blank=True, null=True, verbose_name='Изображение')
+    category_id = models.ForeignKey('Category', on_delete=models.CASCADE, verbose_name='Категория')
+    category = models.CharField('Category.name', max_length=100)
+    price_for_purchase = models.DecimalField(max_digits=20, decimal_places=2, verbose_name='Цена за покупку')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -14,9 +15,16 @@ class Product(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'продукт'
+        verbose_name = 'Продукты'
         verbose_name_plural = 'продукты'
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField()
+    name = models.CharField(max_length=100, verbose_name='Название категории')
+    description = models.TextField(verbose_name='Описание')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категории'
+        verbose_name_plural = 'Категории'

@@ -1,0 +1,48 @@
+[
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "Яблоко",
+      "description": "Яблоко",
+      "picture": "",
+      "category_id": 1,
+      "category": "Фрукты",
+      "price_for_purchase": "100.00",
+      "created_at": "2024-03-25T16:44:52.096Z",
+      "updated_at": "2024-03-25T16:44:58.967Z"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Фрукты",
+      "description": "Фрукты"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Овощи",
+      "description": "Овощи"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Кансервы",
+      "description": "Кансервы"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Специи",
+      "description": "Специиы"
+    }
+  }
+]
