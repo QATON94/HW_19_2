@@ -50,8 +50,7 @@ class Command(BaseCommand):
             product_for_create.append(
                 Product(id=product['pk'], name=product["fields"]['name'],
                         description=product["fields"]['description'], picture=product["fields"]['picture'],
-                        category_id=Category.objects.get(pk=product["fields"]['category_id']),
-                        category=product["fields"]['category'],
+                        category=Category.objects.get(pk=product["fields"]['category']),
                         price_for_purchase=product["fields"]['price_for_purchase'],
                         created_at=product["fields"]['created_at'],
                         updated_at=product["fields"]['updated_at'])
