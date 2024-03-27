@@ -18,6 +18,7 @@ class Product(models.Model):
         verbose_name = 'Продукты'
         verbose_name_plural = 'продукты'
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название категории')
     description = models.TextField(verbose_name='Описание')

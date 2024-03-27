@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import  os
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'catalog', # Название БД
-        'USER': 'postgres', # Пользователь для подключения
-        'PASSWORD': os.environ.get('PASSWORD_POSTGRESQL'), # Пароль для этого пользователя
-        'HOST': '127.0.0.1', # Адрес, на котором развернут сервер БД
-        'PORT': 5432, # Порт, на котором работает сервер БД
+        'NAME': 'catalog',
+        'USER': 'postgres',
+        'PASSWORD': os.environ.get('PASSWORD_POSTGRESQL'),
+        'HOST': '127.0.0.1',
+        'PORT': 5432,
     }
 }
 
