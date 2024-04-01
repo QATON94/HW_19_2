@@ -4,9 +4,9 @@ from catalog.models import Product, Category
 
 
 def home(request):
-    category_list = Category.objects.all()
+    product_list = Product.objects.all()
     context = {
-        'object_list': category_list
+        'object_list': product_list
     }
     return render(request, 'catalog/home.html', context)
 
@@ -22,7 +22,7 @@ def contacts(request):
 
 def product(request, pk):
     product = Product.objects.get(pk=pk)
-    # context = {
-    #     'category': Product.objects.all()
-    # }
-    return render(request, 'catalog/product.html')
+    context = {
+        'product': product
+    }
+    return render(request, 'catalog/product.html', context)
