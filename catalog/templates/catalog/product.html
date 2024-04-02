@@ -7,13 +7,15 @@
         <p class="lead"></p>
     </div>
     <div class="container">
-        <div class="row row-cols-1 row-cols-mb-3 text-center">
-            <div class="col-3">
+        <div class="row row-cols-1 row-cols text-center">
+            <div class="col-6">
                 <div class="card mb-4 box-shadow">
                     <div class="card-header">
                         <h4 class="my-0 font-weight-normal">{{ product.name }}</h4>
                     </div>
-                    <img src="{% image_tag product.picture %}" class="card-img-top" alt={{ product.name }}>
+                    <div class="site-text2">
+                        <img src="{% image_tag product.picture %}" class="card-img-top" alt={{ product.name }}>
+                    </div>
                     <div class="card-body">
                         <h1 class="card-title pricing-card-title">{{ product.price_for_purchase }} руб.</h1>
                         <ul class="list-unstyled mt-3 mb-4 text-start m-3">
