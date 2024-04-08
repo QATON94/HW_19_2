@@ -1,7 +1,8 @@
-django
-psycopg2-binary
-pillow
-ipython
-flake8
-mypy
-pytils
+django==5.0.3
+psycopg2-binary==2.9.9
+pillow==10.2.0
+ipython==8.22.2
+flake8==7.0.0
+mypy==1.9.0
+pytils==0.4.1
+python-dotenv==1.0.1
