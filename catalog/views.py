@@ -5,9 +5,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from catalog.models import Product
 
 
-
 class HomeListView(ListView):
-    template_name = 'catalog/home.html'
     model = Product
 
 
@@ -25,6 +23,3 @@ class ContactsView(TemplateView):
 
 class ProductListView(DetailView):
     model = Product
-    template_name = 'catalog/product.html'
-
-
