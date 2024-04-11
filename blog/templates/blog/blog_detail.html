@@ -1,5 +1,5 @@
 {% extends 'catalog/base.html' %}
-
+{% load media %}
 {% block content %}
 
     <div class="col-auto">
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-auto">
-                <img decoding="sync" src="/media/{{ object.preview }}"/>
+                <img src="{{ object.preview|media_filter }}"/>
             </div>
             <div class="card-footer">Просмотры {{ object.numbers_views }}</div>
         </div>
