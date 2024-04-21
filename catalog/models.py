@@ -1,8 +1,6 @@
 from django.db import models
 
 
-
-
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название продукта')
     description = models.TextField(verbose_name='Описание')
@@ -20,7 +18,6 @@ class Product(models.Model):
         verbose_name_plural = 'продукты'
 
 
-
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название категории')
     description = models.TextField(verbose_name='Описание')
@@ -31,5 +28,3 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категории'
         verbose_name_plural = 'Категории'
-
-
