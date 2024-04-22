@@ -1,6 +1,6 @@
 from django.forms import BooleanField, ModelForm, forms
 
-from catalog.models import Product
+from catalog.models import Product, Version
 
 
 class StyleFormMixin:
@@ -31,3 +31,11 @@ class ProductForm(StyleFormMixin, ModelForm):
         if set(check_words) & set(self.cleaned_data['description'].lower().split()):
             raise forms.ValidationError('не могут создавать продукты с запрещенными словами в описании')
         return cleaned_data
+
+
+class VersionForm(StyleFormMixin, ModelForm):
+
+    class Meta:
+        model = Version
+        fields = '__all__'
+
