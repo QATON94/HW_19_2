@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Название продукта')
@@ -9,6 +11,7 @@ class Product(models.Model):
     price_for_purchase = models.DecimalField(max_digits=20, decimal_places=2, verbose_name='Цена за покупку')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Пользователь')
 
     def __str__(self):
         return self.name

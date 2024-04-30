@@ -17,3 +17,5 @@ class Blog(models.Model):
         verbose_name = 'Блог'
         verbose_name_plural = 'Блоги'
         ordering = ['title', 'created_at']
+
+
