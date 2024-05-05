@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('catalog', '0012_product_owner'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
@@ -15,11 +14,14 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='product',
-            options={'permissions': [('can_edit_description_product', 'может менять описание любого продукта'), ('can_edit_category_product', 'может менять категорию любого продукта')], 'verbose_name': 'Продукты', 'verbose_name_plural': 'продукты'},
+            options={'permissions': [('can_edit_description_product', 'может менять описание любого продукта'),
+                                     ('can_edit_category_product', 'может менять категорию любого продукта')],
+                     'verbose_name': 'Продукты', 'verbose_name_plural': 'продукты'},
         ),
         migrations.AlterField(
             model_name='product',
             name='owner',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Пользователь'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                    to=settings.AUTH_USER_MODEL, verbose_name='Пользователь'),
         ),
     ]

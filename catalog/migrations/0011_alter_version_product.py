@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('catalog', '0010_version'),
     ]
@@ -14,6 +13,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='version',
             name='product',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='versions', to='catalog.product', verbose_name='Продукт'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='versions',
+                                    to='catalog.product', verbose_name='Продукт'),
         ),
     ]

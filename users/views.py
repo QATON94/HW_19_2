@@ -1,6 +1,5 @@
 import random
 
-from django.contrib.auth.views import PasswordResetView
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -37,7 +36,8 @@ class RegisterUserView(CreateView):
         user.verification_code = verification_code
 
         message = (f'Вы успешно зарегистрировались на нашем сайте. Чтобы продолжить использовать необходимо'
-                   f'подтвердить регистрацию по ссылке http://{current_site}/users/confirm/ и ввести код {verification_code}')
+                   f'подтвердить регистрацию по ссылке http://{current_site}/users/confirm/ и ввести код '
+                   f'{verification_code}')
         user.save()
         send_mail(
             subject=subject,

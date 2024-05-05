@@ -38,7 +38,7 @@ class ContactsView(TemplateView):
         return render(request, 'catalog/contacts.html')
 
 
-class ProductDetailView(LoginRequiredMixin, DetailView):
+class ProductDetailView(DetailView):
     model = Product
 
 

@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('catalog', '0013_alter_product_options_alter_product_owner'),
     ]
@@ -12,7 +11,10 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='product',
-            options={'permissions': [('can_edit_description_product', 'может менять описание любого продукта'), ('can_edit_category_product', 'может менять категорию любого продукта'), ('can_edit_publication_sign_product', 'может отменять публикацию продукта')], 'verbose_name': 'Продукты', 'verbose_name_plural': 'продукты'},
+            options={'permissions': [('can_edit_description_product', 'может менять описание любого продукта'),
+                                     ('can_edit_category_product', 'может менять категорию любого продукта'),
+                                     ('can_edit_publication_sign_product', 'может отменять публикацию продукта')],
+                     'verbose_name': 'Продукты', 'verbose_name_plural': 'продукты'},
         ),
         migrations.AddField(
             model_name='product',

@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('blog', '0001_initial'),
     ]
@@ -12,6 +11,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='blog',
-            options={'ordering': ['title', 'created_at'], 'permissions': [('can_edit_publication_sign_product', 'может отменять публикацию продукта')], 'verbose_name': 'Блог', 'verbose_name_plural': 'Блоги'},
+            options={'ordering': ['title', 'created_at'],
+                     'permissions': [('can_edit_publication_sign_product', 'может отменять публикацию продукта')],
+                     'verbose_name': 'Блог', 'verbose_name_plural': 'Блоги'},
         ),
     ]

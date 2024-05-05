@@ -3,7 +3,6 @@ from django.contrib import admin
 from catalog.models import Product, Category, Version
 
 
-# Register your models here.
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'price_for_purchase', 'category')
@@ -17,5 +16,5 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Version)
-class CategoryAdmin(admin.ModelAdmin):
+class VersionAdmin(admin.ModelAdmin):
     list_display = ('product', 'version_number', 'version_name', 'current_version')
