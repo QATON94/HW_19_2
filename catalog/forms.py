@@ -16,7 +16,7 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'description', 'picture', 'category', 'price_for_purchase']
+        fields = ['name', 'description', 'picture', 'category', 'price_for_purchase', 'publication_sign']
 
     def clean_name(self):
         cleaned_data = self.cleaned_data['name']
@@ -31,6 +31,12 @@ class ProductForm(StyleFormMixin, ModelForm):
         if set(check_words) & set(self.cleaned_data['description'].lower().split()):
             raise forms.ValidationError('не могут создавать продукты с запрещенными словами в описании')
         return cleaned_data
+
+
+class ProductModeratorForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Product
+        fields = ['description', 'category', 'publication_sign']
 
 
 class VersionForm(StyleFormMixin, ModelForm):

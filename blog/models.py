@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Blog(models.Model):
     title = models.CharField(max_length=150, verbose_name='заголовок')
@@ -9,6 +11,7 @@ class Blog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     publication_sign = models.BooleanField(verbose_name='признак публикации', default=False)
     numbers_views = models.IntegerField(verbose_name='количество просмотров', default=0)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Пользователь')
 
     def __str__(self):
         return self.title
