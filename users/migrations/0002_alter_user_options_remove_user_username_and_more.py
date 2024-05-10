@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('users', '0001_initial'),
     ]
@@ -26,6 +25,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='phone_number',
-            field=models.CharField(blank=True, help_text='Введите номер телефона', max_length=35, null=True, verbose_name='Номер телефона'),
+            field=models.CharField(blank=True, help_text='Введите номер телефона', max_length=35, null=True,
+                                   verbose_name='Номер телефона'),
         ),
     ]

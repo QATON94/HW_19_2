@@ -5,7 +5,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('catalog', '0009_delete_blog'),
     ]
@@ -18,7 +17,8 @@ class Migration(migrations.Migration):
                 ('version_number', models.FloatField(verbose_name='Номер версии')),
                 ('version_name', models.CharField(max_length=150, verbose_name='Название версии')),
                 ('current_version', models.BooleanField(default=True, verbose_name='признак текущей версии')),
-                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.product', verbose_name='Продукт')),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='catalog.product',
+                                              verbose_name='Продукт')),
             ],
             options={
                 'verbose_name': 'Версия',

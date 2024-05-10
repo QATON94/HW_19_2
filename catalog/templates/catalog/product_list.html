@@ -12,38 +12,39 @@
         </div>
         <div class="row text-center mb-3">
             {% for object in object_list %}
-                <div class="col-6">
-                    <div class="card mb-4 box-shadow">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                                <li>Описание:</li>
-                                <li> - {{ object.description|slice:":100" }}...</li>
-                                <li>Категория продукта</li>
-                                <li> - {{ object.category }}</li>
-                                {% if object.versions.exists %}
-                                    <li>Версия - {{ object.versions_name }}</li>
-                                    <li>Номер версии - {{ object.versions_number }}</li>
+                {% if object.publication_sign or perms.catalog.can_edit_publication_sign_product or perms.catalog.change_product %}
+                    <div class="col-6">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">{{ object.name }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                                    <li>Описание:</li>
+                                    <li> - {{ object.description|slice:":100" }}...</li>
+                                    <li>Категория продукта</li>
+                                    <li> - {{ object.category }}</li>
+                                    {% if object.versions.exists %}
+                                        <li>Версия - {{ object.versions_name }}</li>
+                                        <li>Номер версии - {{ object.versions_number }}</li>
+                                    {% endif %}
+                                </ul>
+                                <a href="{% url 'catalog:product' object.pk %}" type="button"
+                                   class="btn btn-lg btn-block btn-outline-primary">Купить</a>
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'catalog:edit_product' object.pk %}" type="button"
+                                       class="btn btn-lg btn-block btn-outline-primary">редактировать</a>
                                 {% endif %}
-
-                            </ul>
-                            <a href="{% url 'catalog:product' object.pk %}" type="button"
-                               class="btn btn-lg btn-block btn-outline-primary">Купить</a>
-                            <a href="{% url 'catalog:edit_product' object.pk %}" type="button"
-                               class="btn btn-lg btn-block btn-outline-primary">редактировать</a>
-                            <a href="{% url 'catalog:delete_product' object.pk %}" type="button"
-                               class="btn btn-lg btn-block btn-outline-primary">удалить</a>
-
+                                {% if perms.catalog.delete_product %}
+                                    <a href="{% url 'catalog:delete_product' object.pk %}" type="button"
+                                       class="btn btn-lg btn-block btn-outline-primary">удалить</a>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
             {% endfor %}
-
         </div>
-
-
     </div>
 
 {% endblock %}

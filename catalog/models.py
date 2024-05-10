@@ -11,7 +11,9 @@ class Product(models.Model):
     price_for_purchase = models.DecimalField(max_digits=20, decimal_places=2, verbose_name='Цена за покупку')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Пользователь')
+    publication_sign = models.BooleanField(verbose_name='признак публикации', default=False)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Пользователь',
+                              default=User)
 
     def __str__(self):
         return self.name
@@ -19,6 +21,11 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукты'
         verbose_name_plural = 'продукты'
+        permissions = [
+            ('can_edit_description_product', 'может менять описание любого продукта'),
+            ('can_edit_category_product', 'может менять категорию любого продукта'),
+            ('can_edit_publication_sign_product', 'может отменять публикацию продукта'),
+        ]
 
 
 class Category(models.Model):

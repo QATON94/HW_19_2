@@ -36,7 +36,8 @@ class RegisterUserView(CreateView):
         user.verification_code = verification_code
 
         message = (f'Вы успешно зарегистрировались на нашем сайте. Чтобы продолжить использовать необходимо'
-                   f'подтвердить регистрацию по ссылке http://{current_site}/users/confirm/ и ввести код {verification_code}')
+                   f'подтвердить регистрацию по ссылке http://{current_site}/users/confirm/ и ввести код '
+                   f'{verification_code}')
         user.save()
         send_mail(
             subject=subject,

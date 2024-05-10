@@ -6,6 +6,7 @@
         <h1 class="display-4">Продукт</h1>
         <p class="lead"></p>
     </div>
+    {% if user.is_authenticated %}
     <div class="container">
         <div class="row row-cols-1 row-cols text-center">
             <div class="col-6">
@@ -26,5 +27,7 @@
                 </div>
             </div>
         </div>
-
+    {% else %}
+    <meta http-equiv="refresh" content="0;URL=http://localhost:8000/users/login/">
+    {% endif %}
 {% endblock %}
