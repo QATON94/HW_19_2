@@ -9,3 +9,5 @@ tzdata==2024.1
 flake8==7.0.0
 pyflakes==3.2.0
 mccabe==0.7.0
+async-timeout==4.0.3
+redis==5.0.4
