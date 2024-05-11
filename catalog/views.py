@@ -67,12 +67,8 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('catalog:home')
 
     def get_context_data(self, **kwargs):
-        user = self.request.user
         context_data = super().get_context_data(**kwargs)
         version_formset = inlineformset_factory(Product, Version, form=VersionForm, extra=1)
-        if user.has_perm('catalog.can_edit_description_product') and user.has_perm(
-                'catalog.can_edit_category_product') and user.has_perm('catalog.can_edit_publication_sign_product'):
-            return context_data
         if self.request.method == 'POST':
             context_data['formset'] = version_formset(self.request.POST, instance=self.get_object())
         else:
